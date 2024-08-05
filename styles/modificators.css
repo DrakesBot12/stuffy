@@ -1,0 +1,81 @@
+.screen--background {
+    background-image: url('/src/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.segoe {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.staff-text {
+    display: flex;
+    align-items: baseline;
+    font-size: 83px;
+}
+
+.orange-color {
+    color: var(--orange);
+}
+
+.white-stroke {
+    -webkit-text-stroke: 1px var(--white);
+    color: transparent;
+}
+
+.orange-stroke {
+    -webkit-text-stroke: 1px var(--orange);
+    color: transparent;
+}
+
+.screen-background {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.white-stroke_hover {
+    -webkit-text-stroke: 0;
+    color: var(--white);
+}
+
+.orange-stroke_hover {
+    -webkit-text-stroke: 0;
+    color: var(--orange);
+}
+
+.icon {
+    border-radius: 15px;
+}
+
+.left-circle {
+    left: -15%;
+}
+
+.right-circle {
+    right: -15%;
+}
+
+.contact-us {
+    margin-top: 10%;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-us:hover {
+    color: var(--orange);
+}

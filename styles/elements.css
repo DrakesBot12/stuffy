@@ -1,0 +1,12 @@
+.circle {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    border: 11px solid var(--orange);
+    top: auto;
+    bottom: 5%;
+}

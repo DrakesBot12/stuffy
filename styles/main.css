@@ -1,0 +1,277 @@
+@import url('/styles/blocks.css');
+@import url('/styles/elements.css');
+@import url('/styles/modificators.css');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+input, textarea, select {
+    font: inherit;
+}
+
+* {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #0f0e17;
+    --orange: #fd8806;
+    --white: #fffffe;
+    --grey: #a7a9be;
+    --black: #16161a;
+}
+
+body, html {
+    background-color: var(--background);
+    color: var(--white);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: "Segoe UI Variable Display";
+    font-size: 55px;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: "Segoe UI Variable Display";
+    font-size: 38px;
+    line-height: 53px;
+}
+
+h3 {
+    font-family: "Segoe UI Variable Display";
+    font-size: 25px;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    padding: 60px 130px;
+    justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 38px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 40px 80px;
+    }
+
+    .email-container {
+        padding: 100px 200px;
+    }
+
+    .social {
+        gap: 20px;
+    }
+
+    .persons-container {
+        gap: 40px;
+    }
+
+    .left-person, .right-person {
+        gap: 20px;
+    }
+    
+    .person-name, .person-info {
+        font-size: 20px;
+    }
+
+    .staff-text {
+        font-size: 60px;
+    }
+
+    .white-stroke {
+        -webkit-text-stroke-width: 0.8px;
+    }
+
+    .left-circle {
+        left: -55%;
+    }
+
+    .right-circle {
+        right: -55%;
+    }
+
+    .icon {
+        height: 45px;
+    }
+
+    .content {
+        margin-bottom: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    .content {
+        margin-bottom: 17%;
+    }
+
+    header {
+        padding: 40px 40px;
+    }
+
+    .email-container {
+        padding: 100px 200px;
+        gap: 10px;
+    }
+
+    .social {
+        gap: 0px;
+    }
+
+    .persons-container {
+        gap: 20px;
+    }
+
+    .left-person, .right-person {
+        gap: 10px;
+    }
+
+    .person-name, .person-info {
+        font-size: 15px;
+    }
+
+    .staff-text {
+        font-size: 40px;
+    }
+
+    .white-stroke {
+        -webkit-text-stroke-width: 0.5px;
+    }
+
+    .left-circle {
+        left: -75%;
+    }
+
+    .right-circle {
+        right: -75%;
+    }
+
+    .icon {
+        height: 30px;
+    }
+    
+}
+
+@media (max-width: 520px) {
+    .all {
+        display: none;
+    }
+
+    .staff-text {
+        font-size: 55px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .screen-container__center__texts {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .staff-text {
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 13px;
+    }
+}
