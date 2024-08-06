@@ -1,45 +1,33 @@
 .screen--background {
-    background-image: url('/src/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('/src/background.png') center/cover no-repeat;
 }
 
+.segoe {
+    font-family: 'Segoe UI' sans-serif;
+}
 .roboto {
     font-family: 'Roboto', sans-serif;
 }
 
-.segoe {
-    font-family: 'Segoe UI', sans-serif;
-}
 
-.uppercase {
-    text-transform: uppercase;
-}
-
-.bold {
-    font-weight: bold;
-}
+.uppercase { text-transform: uppercase; }
+.bold { font-weight: bold; }
 
 .staff-text {
     display: flex;
     align-items: baseline;
-    font-size: 83px;
+    font-size: 5.1875rem;
 }
 
-.orange-color {
-    color: var(--orange);
-}
+.orange-color { color: var(--orange); }
 
-.white-stroke {
-    -webkit-text-stroke: 1px var(--white);
+.white-stroke, .orange-stroke {
+    -webkit-text-stroke: 1px;
     color: transparent;
 }
 
-.orange-stroke {
-    -webkit-text-stroke: 1px var(--orange);
-    color: transparent;
-}
+.white-stroke { -webkit-text-stroke-color: var(--white); }
+.orange-stroke { -webkit-text-stroke-color: var(--orange); }
 
 .screen-background {
     width: 100%;
@@ -49,40 +37,34 @@
     align-items: center;
 }
 
-.white-stroke_hover {
+.white-stroke_hover, .orange-stroke_hover {
     -webkit-text-stroke: 0;
-    color: var(--white);
 }
 
-.orange-stroke_hover {
-    -webkit-text-stroke: 0;
-    color: var(--orange);
-}
+.white-stroke_hover { color: var(--white); }
+.orange-stroke_hover { color: var(--orange); }
 
-.icon {
-    border-radius: 15px;
-}
+.icon { border-radius: var(--border-radius); }
 
-.left-circle {
-    left: -10%;
-}
-
-.right-circle {
-    right: -10%;
-}
+.left-circle { inset-inline-start: -10%; }
+.right-circle { inset-inline-end: -10%; }
 
 .contact-us {
-    transition: all 0.3s ease-in-out;
+    transition: color var(--transition-duration) ease-in-out;
 }
 
-.contact-us:hover {
-    color: var(--orange);
-}
+.contact-us:hover { color: var(--orange); }
 
-.circle-person {
-    width: 100%;
-}
+.circle-person { width: 100%; }
 
-.border-no {
-    border: 0;
+.border-no { border: none; }
+
+@media (max-width: 768px) {
+    .staff-text {
+        font-size: 3rem;
+    }
+    
+    .screen-background {
+        flex-direction: column;
+    }
 }
