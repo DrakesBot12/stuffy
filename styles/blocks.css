@@ -168,18 +168,21 @@
 
 .block {
     padding: 100px 60px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     width: 100%;
 }
 
 .animate {
     background-image: url('/src/left-img2.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .adv {
     background-image: url('/src/right-img2.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .screen-container__bottom {

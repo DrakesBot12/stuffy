@@ -64,11 +64,11 @@
 }
 
 .left-circle {
-    left: -15%;
+    left: -10%;
 }
 
 .right-circle {
-    right: -15%;
+    right: -10%;
 }
 
 .contact-us {
@@ -77,4 +77,12 @@
 
 .contact-us:hover {
     color: var(--orange);
+}
+
+.circle-person {
+    width: 100%;
+}
+
+.border-no {
+    border: 0;
 }
