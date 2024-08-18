@@ -56,7 +56,6 @@
 .left-img__container, .right-img__container {
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
     overflow: hidden;
 }
@@ -148,23 +147,6 @@
     font-size: 1.5rem;
     font-weight: 300;
 }
-
-@media (max-width: 768px) {
-    .email-container {
-        padding: 5% 2%;
-    }
-    
-    .persons-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-    
-    .left-person, .right-person {
-        text-align: center;
-    }
-}
-
 /* Mobile | Screen  */
 
 .screen-mobile, .screen-container__mobile {
@@ -186,7 +168,8 @@
 }
 
 .screen-container__top {
-    padding: 5rem 3rem;
+    padding: 50px 3rem;
+    gap: 10rem;
 }
 
 .block {

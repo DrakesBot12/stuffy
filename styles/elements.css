@@ -12,11 +12,3 @@
     box-sizing: border-box;
     transition: all 0.3s ease;
 }
-
-@media (max-width: 768px) {
-    .circle {
-        width: 80vmin;
-        height: 80vmin;
-        bottom: 5%;
-    }
-}

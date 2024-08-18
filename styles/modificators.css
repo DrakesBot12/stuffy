@@ -58,13 +58,3 @@
 .circle-person { width: 100%; }
 
 .border-no { border: none; }
-
-@media (max-width: 768px) {
-    .staff-text {
-        font-size: 3rem;
-    }
-    
-    .screen-background {
-        flex-direction: column;
-    }
-}
