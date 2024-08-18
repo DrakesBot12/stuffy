@@ -215,11 +215,11 @@ header {
     }
 
     .animate {
-        background-image: url('/src/left-img2.png');
+        background-image: url('/src/left-img2.webp');
     }
     
     .adv {
-        background-image: url('/src/right-img2.png');
+        background-image: url('/src/right-img2.webp');
     }
 
     .staff-text {
