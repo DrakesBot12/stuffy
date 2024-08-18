@@ -214,6 +214,14 @@ header {
         font-size: 19px;
     }
 
+    .animate {
+        background-image: url('/src/left-img2.png');
+    }
+    
+    .adv {
+        background-image: url('/src/right-img2.png');
+    }
+
     .staff-text {
         font-size: 69px;
     }

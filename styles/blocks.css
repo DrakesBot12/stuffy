@@ -184,14 +184,6 @@
     background-repeat: no-repeat;
 }
 
-.animate {
-    background-image: url('/src/left-img2.png');
-}
-
-.adv {
-    background-image: url('/src/right-img2.png');
-}
-
 .screen-container__bottom {
     width: 100%;
 }
