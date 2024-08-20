@@ -1,51 +1,46 @@
 const screenTextsParts = document.querySelectorAll('.text-parts');
-const screenContainerImg = document.querySelector('.screen-background');
-const leftImg = screenContainerImg.querySelector('.left-img');
-const rightImg = screenContainerImg.querySelector('.right-img');
+const leftImg = document.querySelector('.left-img');
+const rightImg = document.querySelector('.right-img');
 const orangeStroke = document.querySelector('.orange-stroke');
 const leftText = document.querySelector('.left-text');
 const rightText = document.querySelector('.right-text');
 
 function handleMouseEvent(part, isEnter) {
     const isLeft = part.classList.contains('screen-container__left');
-    const activeImg = isLeft ? leftImg : rightImg;
-    const inactiveImg = isLeft ? rightImg : leftImg;
+    const [activeImg, inactiveImg] = isLeft ? [leftImg, rightImg] : [rightImg, leftImg];
     const activeText = isLeft ? leftText : rightText;
 
-    part.style.filter = isEnter ? 'saturate(50%)' : 'none';
-    activeImg.style.transform = isEnter ? 'scale(1.05)' : 'scale(1)';
-    activeImg.style.filter = isEnter ? 'saturate(150%)' : 'saturate(100%)';
-    inactiveImg.style.filter = isEnter ? 'saturate(50%)' : 'saturate(100%)';
+    activeImg.style.transform = `scale(${isEnter ? 1.05 : 1})`;
+    activeImg.style.filter = `saturate(${isEnter ? 150 : 100}%)`;
+    inactiveImg.style.filter = `saturate(${isEnter ? 50 : 100}%)`;
+    
+    activeText.classList.toggle('white-stroke_hover', isEnter);
+    if (!isLeft) {
+        orangeStroke.classList.toggle('orange-stroke_hover', isEnter);
+    }
 }
 
-screenTextsParts.forEach(part => {
-    part.style.transition = 'filter 0.3s ease';
-    leftImg.style.transition = rightImg.style.transition = 'transform 0.3s ease, filter 0.3s ease';
-    orangeStroke.style.transition = 'all 0.3s ease';
-    leftText.style.transition = rightText.style.transition = 'all 0.3s ease';
+function setupTransitions() {
+    [
+        ...screenTextsParts,
+        leftImg,
+        rightImg,
+        orangeStroke,
+        leftText,
+        rightText
+    ].forEach(el => el?.style.setProperty('transition', 'all 0.3s ease'));
+}
 
-    part.addEventListener('mouseenter', () => handleMouseEvent(part, true));
-    part.addEventListener('mouseleave', () => handleMouseEvent(part, false));
-});
-
-screenTextsParts.forEach(part => {
-    part.addEventListener('mouseenter', () => {
-        if (part.classList.contains('screen-container__left')) {
-            leftText.classList.add('white-stroke_hover');
-        }
-        if (part.classList.contains('screen-container__right')) {
-            rightText.classList.add('white-stroke_hover');
-            orangeStroke.classList.add('orange-stroke_hover');
+function setupEventListeners() {
+    ['left', 'right'].forEach(side => {
+        const part = document.querySelector(`.screen-container__${side}`);
+        if (part) {
+            ['mouseenter', 'mouseleave'].forEach(event => {
+                part.addEventListener(event, () => handleMouseEvent(part, event === 'mouseenter'));
+            });
         }
     });
+}
 
-    part.addEventListener('mouseleave', () => {
-        if (part.classList.contains('screen-container__left')) {
-            leftText.classList.remove('white-stroke_hover');
-        }
-        if (part.classList.contains('screen-container__right')) {
-            rightText.classList.remove('white-stroke_hover');
-            orangeStroke.classList.remove('orange-stroke_hover');
-        }
-    });
-});
+setupTransitions();
+setupEventListeners();
