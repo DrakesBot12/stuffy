@@ -1,11 +1,12 @@
 .circle {
     display: flex;
     position: absolute;
-    width: 70vmin;
-    height: 70vmin;
+    width: 700px;
+    height: 700px;
     border-radius: 50%;
-    border: 1.1vmin solid var(--orange);
+    border: 11px solid var(--orange);
     bottom: 10%;
     overflow: hidden;
     transition: all 0.3s ease;
+    transform: scaleX(-1);
 }
