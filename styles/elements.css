@@ -1,14 +1,11 @@
 .circle {
     display: flex;
     position: absolute;
-    align-items: center;
-    justify-content: center;
     width: 70vmin;
     height: 70vmin;
     border-radius: 50%;
     border: 1.1vmin solid var(--orange);
     bottom: 10%;
     overflow: hidden;
-    box-sizing: border-box;
     transition: all 0.3s ease;
 }
