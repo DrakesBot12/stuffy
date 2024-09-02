@@ -17,18 +17,19 @@
 
 .orange-color { color: var(--orange); }
 
-.white-stroke, .orange-stroke {
+.white-stroke {
     -webkit-text-stroke: 1px;
     color: transparent;
 }
 
 .white-stroke { -webkit-text-stroke-color: var(--white) }
-.orange-stroke { -webkit-text-stroke-color: var(--orange) }
 
-.white-stroke_hover, .orange-stroke_hover { -webkit-text-stroke: 0; }
+.white-stroke_hover {
+    -webkit-text-stroke: 0;
+    color: var(--white);
+}
 
 .white-stroke_hover { color: var(--white); }
-.orange-stroke_hover { color: var(--orange); }
 
 .left-circle { inset-inline-start: -10%; }
 .right-circle { inset-inline-end: -10%; }

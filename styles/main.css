@@ -133,7 +133,7 @@ header {
         font-size: 79px;
     }
 
-    .white-stroke, .orange-stroke {
+    .white-stroke {
         -webkit-text-stroke-width: 0.8px;
     }
 
@@ -262,7 +262,7 @@ header {
         background-image: url('/src/left-img2.webp');
     }
     
-    .adv {
+    .stills {
         background-image: url('/src/right-img2.webp');
     }
 

@@ -74,12 +74,11 @@
 }
 
 .screen-container__left::after {
-    background: linear-gradient(-91deg, #0f0e17, rgba(15, 14, 23, 0.35));
+    background: linear-gradient(-91deg, #0f0e17 0%, #0f0e17 8%, rgba(15, 14, 23, 0.3) 100%);
 }
 
 .screen-container__right::after {
-    background: linear-gradient(91deg, #0f0e17, rgba(15, 14, 23, 0.35));
-}
+    background: linear-gradient(91deg, #0f0e17 0%, #0f0e17 8%, rgba(15, 14, 23, 0.3) 100%);}
 
 /* Contact Page */
 .contacts-screen {
@@ -176,7 +175,7 @@
 }
 
 .animate,
-.adv {
+.stills {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
