@@ -38,3 +38,5 @@
 .contact-us:hover { color: var(--orange); }
 
 .border-no { border: none; }
+
+.space { justify-content: space-between; }

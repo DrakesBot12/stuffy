@@ -184,3 +184,19 @@
 .screen-container__bottom {
     width: 100%;
 }
+
+/* Galleryes */
+
+.content_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 3%;
+}
+
+.stills_img {
+    flex-basis: calc(90% / 3 );
+    max-width: calc(90% / 3 );
+    margin: 1rem;
+}

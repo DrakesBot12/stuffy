@@ -113,6 +113,7 @@ header {
     width: 100%;
     display: flex;
     padding: 60px 130px;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -237,7 +238,7 @@ header {
 
     .content {
         flex-direction: column;
-        margin-bottom: 10%;
+        margin-bottom: 15%;
     }
 
     .persons-container > div:nth-child(odd) {
@@ -304,9 +305,21 @@ header {
     }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 430px) {
     h3, h2 {
         font-size: 15px;
+    }
+
+    .content {
+        margin-bottom: 50%;
+    }
+    
+    .left-circle {
+        top: 25%;
+    }
+
+    .right-circle {
+        bottom: 15%;
     }
 
     .staff-text {

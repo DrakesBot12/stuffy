@@ -39,3 +39,16 @@ function setupEventListeners() {
 
 setupTransitions();
 setupEventListeners();
+
+
+const contentsDiv = document.getElementById('contents');
+
+for (let i = 1; i <= 30; i++) {
+    for (let folder of ['banner', 'poster', 'square']) {
+        const img = document.createElement('img');
+        img.src = `../src/stills/${folder}/${i}.webp`;
+        img.alt = `${folder} ${i}`;
+        img.classList.add('stills_img');
+        contentsDiv.appendChild(img);
+    }
+}
