@@ -67,6 +67,7 @@ if (window.location.pathname.endsWith('gallery_stills.html') || window.location.
           }
       };
 
+      
       const loadMedia = async (folder) => {
           let index = 1;
           while (true) {
