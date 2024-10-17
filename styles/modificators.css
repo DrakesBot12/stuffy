@@ -40,3 +40,18 @@
 .border-no { border: none; }
 
 .space { justify-content: space-between; }
+
+.banner {
+    width: calc(90% / 3);
+    height: 300px;
+}
+
+.square {
+    width: calc(90% / 3);
+    height: 100%;
+}
+
+.poster {
+    width: calc(90% / 3);
+    height: 800px;
+}

@@ -40,15 +40,49 @@ function setupEventListeners() {
 setupTransitions();
 setupEventListeners();
 
+if (window.location.pathname.endsWith('gallery_stills.html') || window.location.pathname.endsWith('gallery_animation.html')) {
+      const isStills = window.location.pathname.endsWith('gallery_stills.html');
+      const contentDiv = document.getElementById(isStills ? 'contents-s' : 'contents-a');
+      const folders = ['square', 'poster', 'banner'];
+      const mediaType = isStills ? 'stills' : 'animations';
+      const fileExtension = isStills ? 'webp' : 'webm';
 
-const contentsDiv = document.getElementById('contents');
+      const createMediaElement = (src, folder, index) => {
+          if (isStills) {
+              const img = document.createElement('img');
+              img.src = src;
+              img.alt = `${folder} ${index}`;
+              img.classList.add('stills_img', folder);
+              return img;
+          } else {
+              const video = document.createElement('video');
+              video.src = src;
+              video.autoplay = true;
+              video.loop = true;
+              video.muted = true;
+              video.playsInline = true;
+              video.controls = false;
+              video.classList.add('stills_img', folder);
+              return video;
+          }
+      };
 
-for (let i = 1; i <= 30; i++) {
-    for (let folder of ['banner', 'poster', 'square']) {
-        const img = document.createElement('img');
-        img.src = `../src/stills/${folder}/${i}.webp`;
-        img.alt = `${folder} ${i}`;
-        img.classList.add('stills_img');
-        contentsDiv.appendChild(img);
-    }
+      const loadMedia = async (folder) => {
+          let index = 1;
+          while (true) {
+              const mediaSrc = `../src/${mediaType}/${folder}/${index}.${fileExtension}`;
+              try {
+                  const response = await fetch(mediaSrc, { method: 'HEAD' });
+                  if (!response.ok) break;
+                  const mediaElement = createMediaElement(mediaSrc, folder, index);
+                  contentDiv.appendChild(mediaElement);
+                  index++;
+              } catch (error) {
+                  console.error(`Error loading media: ${error}`);
+                  break;
+              }
+          }
+      };
+
+      folders.forEach(folder => loadMedia(folder));
 }

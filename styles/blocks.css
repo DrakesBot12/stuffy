@@ -196,7 +196,6 @@
 }
 
 .stills_img {
-    flex-basis: calc(90% / 3 );
-    max-width: calc(90% / 3 );
-    margin: 1rem;
+    margin: 10px;
+    border-radius: 10px;
 }
