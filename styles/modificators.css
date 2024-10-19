@@ -31,13 +31,11 @@
 
 .white-stroke_hover { color: var(--white); }
 
-.left-circle { inset-inline-start: -10%; }
+.left-circle { inset-inline-start: -10%; transform: scaleX(-1); }
 .right-circle { inset-inline-end: -10%; }
 
 .contact-us { transition: color var(--transition-duration) ease-in-out; }
 .contact-us:hover { color: var(--orange); }
-
-.border-no { border: none; }
 
 .space { justify-content: space-between; }
 
@@ -54,4 +52,37 @@
 .poster {
     width: calc(90% / 3);
     height: 800px;
+}
+
+.contact_email {
+    transition: 0.3s all;
+}
+
+.contact_email:hover {
+    color: var(--orange);
+
+    .orange-color {
+        color: var(--white);
+    }
+}
+
+.social_icon {
+
+    .stroke {
+        stroke: var(--white);
+    }
+
+    .fill {
+        fill: var(--white);
+    }
+}
+
+.social_icon:hover {
+    .stroke {
+        stroke: var(--orange);
+    }
+
+    .fill {
+        fill: var(--orange);
+    }
 }

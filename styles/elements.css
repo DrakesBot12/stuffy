@@ -4,9 +4,7 @@
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    border: 11px solid var(--orange);
     bottom: 10%;
     overflow: hidden;
     transition: all 0.3s ease;
-    transform: scaleX(-1);
 }
