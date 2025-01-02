@@ -41,49 +41,88 @@ setupTransitions();
 setupEventListeners();
 
 if (window.location.pathname.endsWith('gallery_stills.html') || window.location.pathname.endsWith('gallery_animation.html')) {
-      const isStills = window.location.pathname.endsWith('gallery_stills.html');
-      const contentDiv = document.getElementById(isStills ? 'contents-s' : 'contents-a');
-      const folders = ['square', 'poster', 'banner'];
-      const mediaType = isStills ? 'stills' : 'animations';
-      const fileExtension = isStills ? 'webp' : 'webm';
+    const PAGE_CONFIG = {
+        stills: {
+            id: 'contents-s',
+            folder: 'stills',
+            extension: 'webp'
+        },
+        animations: {
+            id: 'contents-a',
+            folder: 'animations',
+            extension: 'webm'
+        }
+    };
 
-      const createMediaElement = (src, folder, index) => {
-          if (isStills) {
-              const img = document.createElement('img');
-              img.src = src;
-              img.alt = `${folder} ${index}`;
-              img.classList.add('stills_img', folder);
-              return img;
-          } else {
-              const video = document.createElement('video');
-              video.src = src;
-              video.autoplay = true;
-              video.loop = true;
-              video.muted = true;
-              video.playsInline = true;
-              video.controls = false;
-              video.classList.add('stills_img', folder);
-              return video;
-          }
-      };
+    const isStillsPage = window.location.pathname.endsWith('gallery_stills.html');
+    const pageType = isStillsPage ? 'stills' : 'animations';
+    const { id, folder, extension } = PAGE_CONFIG[pageType];
+    const contentDiv = document.getElementById(id);
 
-      
-      const loadMedia = async (folder) => {
-          let index = 1;
-          while (true) {
-              const mediaSrc = `../src/${mediaType}/${folder}/${index}.${fileExtension}`;
-              try {
-                  const response = await fetch(mediaSrc, { method: 'HEAD' });
-                  if (!response.ok) break;
-                  const mediaElement = createMediaElement(mediaSrc, folder, index);
-                  contentDiv.appendChild(mediaElement);
-                  index++;
-              } catch (error) {
-                  console.error(`Error loading media: ${error}`);
-                  break;
-              }
-          }
-      };
+    if (!contentDiv) {
+        console.error(`Container with id "${id}" not found`);
+    }
 
-      folders.forEach(folder => loadMedia(folder));
+    const createMediaElement = (src, index) => {
+        const element = document.createElement(isStillsPage ? 'img' : 'video');
+        const commonProps = {
+            src,
+            className: 'stills_img',
+            alt: `media ${index}`,
+            loading: 'lazy'
+        };
+
+        Object.assign(element, commonProps);
+
+        if (!isStillsPage) {
+            Object.assign(element, {
+                autoplay: true,
+                loop: true,
+                muted: true,
+                playsInline: true,
+                controls: false
+            });
+        }
+
+        return element;
+    };
+
+    const generateRandomNumbers = (count, max) => {
+        const numbers = new Set();
+        const maxAttempts = max * 2;
+        let attempts = 0;
+
+        while (numbers.size < count && attempts < maxAttempts) {
+            numbers.add(Math.floor(Math.random() * max) + 1);
+            attempts++;
+        }
+
+        return Array.from(numbers);
+    };
+
+    const loadMedia = async () => {
+        const TOTAL_MEDIA_COUNT = 49;
+        const BATCH_SIZE = 5;
+        const randomNumbers = generateRandomNumbers(TOTAL_MEDIA_COUNT, TOTAL_MEDIA_COUNT);
+
+        for (let i = 0; i < randomNumbers.length; i += BATCH_SIZE) {
+            const batch = randomNumbers.slice(i, i + BATCH_SIZE);
+            await Promise.all(batch.map(async (num) => {
+                const mediaSrc = `/src/${folder}/${num}.${extension}`;
+                try {
+                    const response = await fetch(mediaSrc, { method: 'HEAD' });
+                    if (response.ok) {
+                        const mediaElement = createMediaElement(mediaSrc, num);
+                        contentDiv.appendChild(mediaElement);
+                    }
+                } catch (error) {
+                    console.error(`Failed to load media ${num}:`, error);
+                }
+            }));
+        }
+    };
+
+    loadMedia().catch(error => {
+        console.error('Failed to load media gallery:', error);
+    });
 }
