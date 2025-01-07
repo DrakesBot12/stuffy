@@ -1,13 +1,19 @@
+/* Typography */
 .segoe {
     font-family: 'Segoe UI', sans-serif;
 }
+
 .roboto {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
 
-.uppercase { text-transform: uppercase; }
-.bold { font-weight: bold; }
+.bold {
+    font-weight: bold;
+}
 
 .staff-text {
     display: flex;
@@ -15,59 +21,71 @@
     font-size: 83px;
 }
 
-.orange-color { color: var(--orange); }
-
-.white-stroke {
-    -webkit-text-stroke: 1px;
-    color: transparent;
+/* Colors */
+.orange-color {
+    color: var(--orange);
 }
 
-.white-stroke { -webkit-text-stroke-color: var(--white) }
+.white-stroke {
+    -webkit-text-stroke: 1px var(--white);
+    color: transparent;
+}
 
 .white-stroke_hover {
     -webkit-text-stroke: 0;
     color: var(--white);
 }
 
-.white-stroke_hover { color: var(--white); }
+/* Layout */
+.left-circle {
+    inset-inline-start: -10%;
+    transform: scaleX(-1);
+}
 
-.left-circle { inset-inline-start: -10%; transform: scaleX(-1); }
-.right-circle { inset-inline-end: -10%; }
+.right-circle {
+    inset-inline-end: -10%;
+}
 
-.contact-us { transition: color var(--transition-duration) ease-in-out; }
-.contact-us:hover { color: var(--orange); }
+/* Interactive elements */
+.contact-us {
+    transition: color var(--transition-duration) ease-in-out;
+}
 
-.space { justify-content: space-between; }
+.contact-us:hover {
+    color: var(--orange);
+}
+
+.space {
+    justify-content: space-between;
+}
 
 .contact_email {
-    transition: 0.3s all;
+    transition: color 0.3s ease;
 }
 
 .contact_email:hover {
     color: var(--orange);
-
-    .orange-color {
-        color: var(--white);
-    }
 }
 
-.social_icon {
-
-    .stroke {
-        stroke: var(--white);
-    }
-
-    .fill {
-        fill: var(--white);
-    }
+.contact_email:hover .orange-color {
+    color: var(--white);
 }
 
-.social_icon:hover {
-    .stroke {
-        stroke: var(--orange);
-    }
+/* Social icons */
+.social_icon .stroke {
+    stroke: var(--white);
+    transition: stroke 0.3s ease;
+}
 
-    .fill {
-        fill: var(--orange);
-    }
+.social_icon .fill {
+    fill: var(--white);
+    transition: fill 0.3s ease;
+}
+
+.social_icon:hover .stroke {
+    stroke: var(--orange);
+}
+
+.social_icon:hover .fill {
+    fill: var(--orange);
 }
